@@ -4,7 +4,7 @@ import BottomBar from '../customcomponents/BottomBar'
 import OptionButton from '../customcomponents/OptionButton'
 
 
-class DashBoard extends Component {
+class ServiceOptions extends Component {
   static navigationOptions = {
     header: null,
   };
@@ -25,13 +25,13 @@ class DashBoard extends Component {
 
           <OptionButton
             customStyle={ { marginBottom: 20 } }
-            optionTitle={ "Asset Manager" }
+            optionTitle={ "My Tickets" }
             uniqeTag={ "1" }
             pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }
           ></OptionButton>
 
           <OptionButton
-            optionTitle={ "Service Desk" }
+            optionTitle={ "All Tickets" }
             uniqeTag={ "2" }
             pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }
           ></OptionButton>
@@ -40,8 +40,8 @@ class DashBoard extends Component {
 
         <BottomBar
           pressedBottomBarItem={ ( btnId ) => { Alert.alert( btnId ) } }
-          leftTile={ "" }
-          middleTitle={ "" }
+          leftTile={ "Back" }
+          middleTitle={ "Home" }
           rightTitle={ "Log Out" }
         ></BottomBar>
 
@@ -65,4 +65,4 @@ const styles = StyleSheet.create( {
   container: { flexDirection: 'column', flex: 1, }
 } );
 
-export default DashBoard;
+export default ServiceOptions;
