@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Alert, TextInput } from 'react-native';
+import { View, Image, StyleSheet, SafeAreaView, TouchableOpacity, Alert, TextInput } from 'react-native';
 import { themeColor } from '../Constants/Constants'
 import BottomBar from '../customcomponents/BottomBar'
 import OptionButton from '../customcomponents/OptionButton'
@@ -20,14 +20,23 @@ class LogInScreen extends Component {
     return (
       <SafeAreaView style={ styles.container }>
         <View style={ { flex: 1 } }>
-          <BottomBar
-            pressedBottomBarItem={ ( btnId ) => { Alert.alert( btnId ) } }
-            leftTile={ "" }
-            middleTitle={ "" }
-            rightTitle={ "URL" }
-          ></BottomBar>
+          {/* Settings Button */ }
+          <View style={ { width: '100%', height: 30, flexDirection: 'row', justifyContent: 'flex-end' } }>
+            <TouchableOpacity style={ { width: 30, height: 30, marginRight: 5 } }>
+              <Image source={ require( '../assets/images/settings.png' ) }
+                style={ { width: 30, height: 30 } }
+              />
+            </TouchableOpacity>
+          </View>
 
-          <View style={ { flexDirection: 'column', justifyContent: 'center', flex: 1 } }>
+          {/* Logo Image */ }
+          <Image source={ require( '../assets/images/applogo.png' ) }
+            style={ { width: 200, height: 133, alignSelf: 'center' } }
+          />
+
+
+          {/* Login fields */ }
+          <View style={ { flexDirection: 'column', justifyContent: 'center' } }>
             <TextInput
               style={ styles.inputStyle }
               onChangeText={ this.updatedUserName }
@@ -45,7 +54,7 @@ class LogInScreen extends Component {
             />
 
             <OptionButton
-              customStyle={ { borderRadius: 5 } }
+              customStyle={ { borderRadius: 5, backgroundColor: 'green' } }
               optionTitle={ "Log In" }
               uniqeTag={ "1" }
               pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }

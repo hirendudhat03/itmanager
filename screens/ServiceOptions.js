@@ -24,13 +24,14 @@ class ServiceOptions extends Component {
           scrollEnabled={ false }>
 
           <OptionButton
-            customStyle={ { marginBottom: 20 } }
+            customStyle={ { marginBottom: 20, width: '100%' } }
             optionTitle={ "My Tickets" }
             uniqeTag={ "1" }
             pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }
           ></OptionButton>
 
           <OptionButton
+            customStyle={ { width: '100%' } }
             optionTitle={ "All Tickets" }
             uniqeTag={ "2" }
             pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }

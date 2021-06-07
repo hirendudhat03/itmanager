@@ -15,15 +15,20 @@ const HomeStack = createStackNavigator( {
   LogInScreen: {
     screen: LogInScreen,
   },
+  ServiceOptions: {
+    screen: ServiceOptions,
+  },
+  DashBoard: {
+    screen: DashBoard,
+  },
+
   ItemListScreen: {
     screen: ItemListScreen,
   },
   AssetManagerScan: {
     screen: AssetManagerScan,
   },
-  ServiceOptions: {
-    screen: ServiceOptions,
-  },
+
   DashBoard: {
     screen: DashBoard,
   },
