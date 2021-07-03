@@ -1,0 +1,819 @@
+{
+    "Status": "1",
+    "Message": "Success",
+    "Values": [
+        {
+            "Id": "1",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Code",
+            "Default_Value": "BEst0003"
+        },
+        {
+            "Id": "2",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Host Name",
+            "Default_Value": "SRINIVAS-HP3"
+        },
+        {
+            "Id": "3",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Serial No",
+            "Default_Value": "P L61G 01 1Z ZM 3P5"
+        },
+        {
+            "Id": "4",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "RAM Details",
+            "Default_Value": "4"
+        },
+        {
+            "Id": "5",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "CPU Type",
+            "Default_Value": "9"
+        },
+        {
+            "Id": "6",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Asset Type",
+            "Default_Value": "demotwo"
+        },
+        {
+            "Id": "7",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Warranty Start Date",
+            "Default_Value": "2021-06-20",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "8",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Warranty End Date",
+            "Default_Value": "2021-06-13",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "9",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "AMC Start Date",
+            "Default_Value": "2021-06-02",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "10",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "AMC End Date",
+            "Default_Value": "2021-06-16",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "11",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Purchase Date",
+            "Default_Value": "2021-06-01",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "12",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "PONumber",
+            "Default_Value": "1"
+        },
+        {
+            "Id": "13",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Manufacturer",
+            "Default_Value": "Hewlett-Packard"
+        },
+        {
+            "Id": "14",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Model",
+            "Default_Value": "HP Pavilion dv6 Notebook PC"
+        },
+        {
+            "Id": "15",
+            "Type": "Regular Field",
+            "Original_Type": "Suggest",
+            "ReadOnly": "False",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Assign TO",
+            "Default_Value": "Manish",
+            "Value": [
+                {
+                    "Id": "19004",
+                    "Name": "dhar"
+                },
+                {
+                    "Id": "20004",
+                    "Name": "dhaval"
+                },
+                {
+                    "Id": "1",
+                    "Name": "Manish"
+                },
+                {
+                    "Id": "2",
+                    "Name": "Mr. Keyur"
+                },
+                {
+                    "Id": "21005",
+                    "Name": "p"
+                },
+                {
+                    "Id": "21004",
+                    "Name": "testing"
+                }
+            ]
+        },
+        {
+            "Id": "16",
+            "Type": "Regular Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Assign Status",
+            "Default_Value": "Temporary",
+            "Value": [
+                {
+                    "Name": "Permanent"
+                },
+                {
+                    "Name": "Temporary"
+                }
+            ]
+        },
+        {
+            "Id": "17",
+            "Type": "Regular Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Assign Status End Date",
+            "Default_Value": "2021-06-12",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "18",
+            "Type": "Regular Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Asset Status",
+            "Default_Value": "In Stock",
+            "Value": [
+                {
+                    "Name": "Allocated"
+                },
+                {
+                    "Name": "In Stock"
+                },
+                {
+                    "Name": "Scrap"
+                }
+            ]
+        },
+        {
+            "Id": "19",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Windows Activation",
+            "Default_Value": "True"
+        },
+        {
+            "Id": "20",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Printer Connected",
+            "Default_Value": "False"
+        },
+        {
+            "Id": "21",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "CD Drive",
+            "Default_Value": "true"
+        },
+        {
+            "Id": "22",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "RAM Slots",
+            "Default_Value": "2"
+        },
+        {
+            "Id": "23",
+            "Type": "Regular Field",
+            "Original_Type": "TextBox",
+            "ReadOnly": "True",
+            "Display": "False",
+            "Mandatory": "False",
+            "LabelName": "Host IP",
+            "Default_Value": "49.204.176.134"
+        },
+        {
+            "Id": "24",
+            "Type": "Regular Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Warranty Type",
+            "Default_Value": "AMC",
+            "Value": [
+                {
+                    "Name": "Warranty"
+                },
+                {
+                    "Name": "AMC"
+                },
+                {
+                    "Name": "NA"
+                }
+            ]
+        },
+        {
+            "Id": "25",
+            "Type": "Regular Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "Vendor",
+            "Default_Value": "fdf",
+            "Value": [
+                {
+                    "Id": "2002",
+                    "Name": "dasd"
+                },
+                {
+                    "Id": "7002",
+                    "Name": "dasd"
+                },
+                {
+                    "Id": "3003",
+                    "Name": "demo"
+                },
+                {
+                    "Id": "5002",
+                    "Name": "demos"
+                },
+                {
+                    "Id": "8005",
+                    "Name": "demos"
+                },
+                {
+                    "Id": "6002",
+                    "Name": "dsad"
+                },
+                {
+                    "Id": "4002",
+                    "Name": "dsd"
+                },
+                {
+                    "Id": "8003",
+                    "Name": "dsd"
+                },
+                {
+                    "Id": "8004",
+                    "Name": "dsf"
+                },
+                {
+                    "Id": "2",
+                    "Name": "fdf"
+                },
+                {
+                    "Id": "8002",
+                    "Name": "fdsf"
+                },
+                {
+                    "Id": "1",
+                    "Name": "fghf"
+                },
+                {
+                    "Id": "3006",
+                    "Name": "fsdf"
+                },
+                {
+                    "Id": "1003",
+                    "Name": "gdgdfg"
+                },
+                {
+                    "Id": "3005",
+                    "Name": "grgreg"
+                },
+                {
+                    "Id": "1004",
+                    "Name": "htfh"
+                },
+                {
+                    "Id": "6004",
+                    "Name": "image"
+                },
+                {
+                    "Id": "3004",
+                    "Name": "newdemo"
+                },
+                {
+                    "Id": "6005",
+                    "Name": "noimage"
+                },
+                {
+                    "Id": "6003",
+                    "Name": "pdf"
+                },
+                {
+                    "Id": "3002",
+                    "Name": "rere"
+                },
+                {
+                    "Id": "1002",
+                    "Name": "ryry"
+                }
+            ]
+        },
+        {
+            "Id": "101",
+            "Custom_Type": "Textbox",
+            "Type": "Custom Field",
+            "Original_Type": "Textbox",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "txt_firstname",
+            "Default_Value": "dharmendra"
+        },
+        {
+            "Id": "102",
+            "Custom_Type": "Dropdown",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "dd_city",
+            "Default_Value": "gandhinagar",
+            "Value": [
+                {
+                    "Id": "1",
+                    "Name": "gandhinagar"
+                },
+                {
+                    "Id": "2",
+                    "Name": "ahmdabad"
+                },
+                {
+                    "Id": "3",
+                    "Name": "surat"
+                }
+            ]
+        },
+        {
+            "Id": "103",
+            "Custom_Type": "Dropdown",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "dd_pincode",
+            "Default_Value": "002",
+            "Value": [
+                {
+                    "Id": "1",
+                    "Name": "001"
+                },
+                {
+                    "Id": "2",
+                    "Name": "002"
+                },
+                {
+                    "Id": "3",
+                    "Name": "003"
+                },
+                {
+                    "Id": "4",
+                    "Name": "004"
+                }
+            ]
+        },
+        {
+            "Id": "104",
+            "Custom_Type": "2 Level Dropdown",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "category",
+            "Default_Id": "1",
+            "Default_Value": "c1",
+            "Value": [
+                {
+                    "Id": "1",
+                    "Name": "c1"
+                },
+                {
+                    "Id": "2",
+                    "Name": "c2"
+                }
+            ]
+        },
+        {
+            "Id": "105",
+            "Parent_Id": "104",
+            "Custom_Type": "2 Level Dropdown_Child_1",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "Level 1 Id": "1",
+            "LabelName": "subcategory",
+            "Default_Id": "2",
+            "Default_Value": "sc1.2",
+            "Value": [
+                {
+                    "Level 1 Id": "1",
+                    "Id": "1",
+                    "Name": "sc1.1"
+                },
+                {
+                    "Level 1 Id": "1",
+                    "Id": "2",
+                    "Name": "sc1.2"
+                },
+                {
+                    "Level 1 Id": "2",
+                    "Id": "3",
+                    "Name": "sc2.1"
+                },
+                {
+                    "Level 1 Id": "2",
+                    "Id": "4",
+                    "Name": "sc2.2"
+                }
+            ]
+        },
+        {
+            "Id": "106",
+            "Custom_Type": "Date",
+            "Type": "Custom Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "date_birthdate",
+            "Default_Value": "2021-06-06",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "107",
+            "Custom_Type": "Browse",
+            "Type": "Custom Field",
+            "Original_Type": "Browse",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "file_signetir",
+            "Default_Value": "download (2).png"
+        },
+        {
+            "Id": "108",
+            "Custom_Type": "Comment",
+            "Type": "Custom Field",
+            "Original_Type": "Comment",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "com_comments",
+            "Default_Value": "fsdfsdf"
+        },
+        {
+            "Id": "109",
+            "Custom_Type": "Username",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "empname",
+            "Default_Value": "Mr. Keyur",
+            "Value": [
+                {
+                    "Id": "19004",
+                    "Name": "dhar"
+                },
+                {
+                    "Id": "20004",
+                    "Name": "dhaval"
+                },
+                {
+                    "Id": "1",
+                    "Name": "Manish"
+                },
+                {
+                    "Id": "2",
+                    "Name": "Mr. Keyur"
+                },
+                {
+                    "Id": "21005",
+                    "Name": "p"
+                },
+                {
+                    "Id": "21004",
+                    "Name": "testing"
+                }
+            ]
+        },
+        {
+            "Id": "110",
+            "Custom_Type": "Start Date",
+            "Type": "Custom Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "fromdate",
+            "Default_Value": "2021-06-05",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "111",
+            "Custom_Type": "End Date",
+            "Type": "Custom Field",
+            "Original_Type": "Date",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "enddate",
+            "Default_Value": "2021-06-13",
+            "Date_Format": "yyyy-MM-dd"
+        },
+        {
+            "Id": "112",
+            "Custom_Type": "3 Level Dropdown",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "LabelName": "country",
+            "Default_Id": "2",
+            "Default_Value": "c2",
+            "Value": [
+                {
+                    "Id": "1",
+                    "Name": "c1"
+                },
+                {
+                    "Id": "2",
+                    "Name": "c2"
+                },
+                {
+                    "Id": "3",
+                    "Name": "c3"
+                }
+            ]
+        },
+        {
+            "Id": "113",
+            "Parent_Id": "112",
+            "Custom_Type": "3 Level Dropdown_Child_1",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "Level 1 Id": "2",
+            "LabelName": "state",
+            "Default_Id": "5",
+            "Default_Value": "c2s2",
+            "Value": [
+                {
+                    "Level 1 Id": "1",
+                    "Id": "1",
+                    "Name": "c1s1"
+                },
+                {
+                    "Level 1 Id": "1",
+                    "Id": "2",
+                    "Name": "c1s2"
+                },
+                {
+                    "Level 1 Id": "1",
+                    "Id": "3",
+                    "Name": "c1s3"
+                },
+                {
+                    "Level 1 Id": "2",
+                    "Id": "4",
+                    "Name": "c2s1"
+                },
+                {
+                    "Level 1 Id": "2",
+                    "Id": "5",
+                    "Name": "c2s2"
+                },
+                {
+                    "Level 1 Id": "2",
+                    "Id": "6",
+                    "Name": "c2s3"
+                },
+                {
+                    "Level 1 Id": "3",
+                    "Id": "7",
+                    "Name": "c3s1"
+                },
+                {
+                    "Level 1 Id": "3",
+                    "Id": "8",
+                    "Name": "c3s2"
+                },
+                {
+                    "Level 1 Id": "3",
+                    "Id": "9",
+                    "Name": "c3s3"
+                }
+            ]
+        },
+        {
+            "Id": "114",
+            "Parent_Id": "113",
+            "Custom_Type": "3 Level Dropdown_Child_2",
+            "Type": "Custom Field",
+            "Original_Type": "Dropdown",
+            "ReadOnly": "False",
+            "Display": "True",
+            "Mandatory": "True",
+            "Level 2 Id": "5",
+            "LabelName": "area",
+            "Default_Id": "10",
+            "Default_Value": "c2s2a2",
+            "Value": [
+                {
+                    "Level 2 Id": "1",
+                    "Id": "1",
+                    "Name": "c1s1a1"
+                },
+                {
+                    "Level 2 Id": "1",
+                    "Id": "2",
+                    "Name": "c1s1a2"
+                },
+                {
+                    "Level 2 Id": "2",
+                    "Id": "3",
+                    "Name": "c1s2a1"
+                },
+                {
+                    "Level 2 Id": "2",
+                    "Id": "4",
+                    "Name": "c1s2a2"
+                },
+                {
+                    "Level 2 Id": "3",
+                    "Id": "5",
+                    "Name": "c1s3a1"
+                },
+                {
+                    "Level 2 Id": "3",
+                    "Id": "6",
+                    "Name": "c1s3a2"
+                },
+                {
+                    "Level 2 Id": "4",
+                    "Id": "7",
+                    "Name": "c2s1a1"
+                },
+                {
+                    "Level 2 Id": "4",
+                    "Id": "8",
+                    "Name": "c2s1a2"
+                },
+                {
+                    "Level 2 Id": "5",
+                    "Id": "9",
+                    "Name": "c2s2a1"
+                },
+                {
+                    "Level 2 Id": "5",
+                    "Id": "10",
+                    "Name": "c2s2a2"
+                },
+                {
+                    "Level 2 Id": "6",
+                    "Id": "11",
+                    "Name": "c2s3a1"
+                },
+                {
+                    "Level 2 Id": "6",
+                    "Id": "12",
+                    "Name": "c2s3a2"
+                },
+                {
+                    "Level 2 Id": "7",
+                    "Id": "13",
+                    "Name": "c3s1a1"
+                },
+                {
+                    "Level 2 Id": "7",
+                    "Id": "14",
+                    "Name": "c3s1a2"
+                },
+                {
+                    "Level 2 Id": "8",
+                    "Id": "15",
+                    "Name": "c3s2a1"
+                },
+                {
+                    "Level 2 Id": "8",
+                    "Id": "16",
+                    "Name": "c3s2a2"
+                },
+                {
+                    "Level 2 Id": "9",
+                    "Id": "17",
+                    "Name": "c3s3a1"
+                },
+                {
+                    "Level 2 Id": "9",
+                    "Id": "18",
+                    "Name": "c3s3a2"
+                }
+            ]
+        }
+    ]
+}

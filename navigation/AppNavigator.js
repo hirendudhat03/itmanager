@@ -7,21 +7,22 @@ import DashBoard from '../screens/DashBoard';
 import AssetManagerScan from '../screens/AssetManagerScan';
 import ItemListScreen from '../screens/ItemListScreen';
 import ServiceOptions from '../screens/ServiceOptions';
-
-
+import AssetDetails from '../screens/AssetDetails';
 
 
 const HomeStack = createStackNavigator( {
   LogInScreen: {
     screen: LogInScreen,
   },
-  ServiceOptions: {
-    screen: ServiceOptions,
+  AssetDetails: {
+    screen: AssetDetails,
   },
   DashBoard: {
     screen: DashBoard,
   },
-
+  ServiceOptions: {
+    screen: ServiceOptions,
+  },
   ItemListScreen: {
     screen: ItemListScreen,
   },
@@ -32,8 +33,6 @@ const HomeStack = createStackNavigator( {
   DashBoard: {
     screen: DashBoard,
   },
-
-
 } );
 
 const AppContainer = createAppContainer( HomeStack );

@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Alert, TextInput, ScrollView } from 'react-native';
-import BottomBar from '../customcomponents/BottomBar'
-import { themeColor } from '../Constants/Constants'
-
-
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+  Alert,
+  TextInput,
+  ScrollView,
+} from 'react-native';
+import BottomBar from '../customcomponents/BottomBar';
+import { themeColor } from '../Constants/Constants';
 
 class AssetManagerScan extends Component {
   static navigationOptions = {
@@ -13,8 +20,7 @@ class AssetManagerScan extends Component {
     super( props );
   }
 
-  componentDidMount = () => {
-  };
+  componentDidMount = () => { };
 
   render() {
     return (
@@ -22,26 +28,27 @@ class AssetManagerScan extends Component {
         <View style={ { flex: 1 } }>
           <ScrollView style={ { flex: 1 } }></ScrollView>
           <BottomBar
-            pressedBottomBarItem={ ( btnId ) => { Alert.alert( btnId ) } }
-            leftTile={ "Back" }
-            middleTitle={ "" }
-            rightTitle={ "Log Out" }
-          ></BottomBar>
+            pressedBottomBarItem={ btnId => {
+
+            } }
+            leftTile={ 'Back' }
+            middleTitle={ '' }
+            rightTitle={ 'Log Out' }></BottomBar>
         </View>
       </SafeAreaView>
     );
   }
 
   updatedUserName = () => {
-    Alert.alert( "123" )
-  }
+
+  };
   updatedUserPassword = () => {
-    Alert.alert( "123" )
-  }
+
+  };
 
   onPress = () => {
-    Alert.alert( "123" )
-  }
+
+  };
 }
 
 const styles = StyleSheet.create( {
@@ -62,7 +69,6 @@ const styles = StyleSheet.create( {
     margin: 12,
     borderWidth: 1,
   },
-
 } );
 
 export default AssetManagerScan;

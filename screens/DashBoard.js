@@ -27,19 +27,19 @@ class DashBoard extends Component {
             customStyle={ { marginBottom: 20 } }
             optionTitle={ "Asset Manager" }
             uniqeTag={ "1" }
-            pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }
+            pressedOption={ ( uniqeId ) => { this.tempMoveToDerailsScreen() } }
           ></OptionButton>
 
           <OptionButton
             optionTitle={ "Service Desk" }
             uniqeTag={ "2" }
-            pressedOption={ ( uniqeId ) => { Alert.alert( uniqeId ) } }
+            pressedOption={ ( uniqeId ) => { } }
           ></OptionButton>
 
         </ScrollView>
 
         <BottomBar
-          pressedBottomBarItem={ ( btnId ) => { Alert.alert( btnId ) } }
+          pressedBottomBarItem={ ( btnId ) => { this.logOutUser() } }
           leftTile={ "" }
           middleTitle={ "" }
           rightTitle={ "Log Out" }
@@ -49,15 +49,38 @@ class DashBoard extends Component {
     );
   }
 
+  tempMoveToDerailsScreen = () => {
+    this.props.navigation.navigate( 'AssetDetails' );
+  }
+
+
+  logOutUser = async () => {
+
+    try {
+      await AsyncStorage.removeItem( "isLoggedIn" );
+    }
+    catch ( exception ) {
+    }
+
+    try {
+      await AsyncStorage.removeItem( "userInfo" );
+    }
+    catch ( exception ) {
+    }
+
+    this.props.navigation.popToTop();
+    this.props.navigation.replace( 'LogInScreen' );
+  }
+
   updatedUserName = () => {
-    Alert.alert( "123" )
+
   }
   updatedUserPassword = () => {
-    Alert.alert( "123" )
+
   }
 
   onPress = () => {
-    Alert.alert( "123" )
+
   }
 }
 

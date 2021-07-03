@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, FlatList, StatusBar, Alert } from 'react-native';
-import { themeColor } from '../Constants/Constants'
-import BottomBar from '../customcomponents/BottomBar'
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  FlatList,
+  StatusBar,
+  Alert,
+} from 'react-native';
+import { themeColor } from '../Constants/Constants';
+import BottomBar from '../customcomponents/BottomBar';
 
 class ItemListScreen extends Component {
   static navigationOptions = {
@@ -24,26 +32,33 @@ class ItemListScreen extends Component {
         title: 'Third Item',
       },
     ];
-
   }
-
 
   renderItem = ( { item } ) => (
     <View style={ styles.item }>
       <Text style={ styles.textStyle }>{ item.title }</Text>
 
-      <View style={ { width: 60, height: 27, backgroundColor: themeColor, position: 'absolute', right: 0, justifyContent: 'center', flexDirection: 'column', borderRadius: 3 } }>
-        <Text style={ { textAlign: 'center', color: 'white' } }>{ "7.8" }</Text>
+      <View
+        style={ {
+          width: 60,
+          height: 27,
+          backgroundColor: themeColor,
+          position: 'absolute',
+          right: 0,
+          justifyContent: 'center',
+          flexDirection: 'column',
+          borderRadius: 3,
+        } }>
+        <Text style={ { textAlign: 'center', color: 'white' } }>{ '7.8' }</Text>
       </View>
     </View>
   );
 
-  componentDidMount = () => {
-  };
+  componentDidMount = () => { };
 
   render() {
-    console.log( "=== DATA " )
-    console.log( this.DATA )
+    console.log( '=== DATA ' );
+    console.log( this.DATA );
     return (
       <SafeAreaView style={ styles.container }>
         <FlatList
@@ -52,12 +67,12 @@ class ItemListScreen extends Component {
           keyExtractor={ item => item.id }
         />
         <BottomBar
-          pressedBottomBarItem={ ( btnId ) => { Alert.alert( btnId ) } }
-          leftTile={ "Back" }
-          middleTitle={ "Home" }
-          rightTitle={ "Log Out" }
-        ></BottomBar>
+          pressedBottomBarItem={ btnId => {
 
+          } }
+          leftTile={ 'Back' }
+          middleTitle={ 'Home' }
+          rightTitle={ 'Log Out' }></BottomBar>
       </SafeAreaView>
     );
   }
@@ -73,12 +88,14 @@ const styles = StyleSheet.create( {
     marginTop: 10,
     marginHorizontal: 5,
     height: 35,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
-  textStyle: { fontSize: 15, marginLeft: 5, textAlign: 'center', alignSelf: 'center' },
-
+  textStyle: {
+    fontSize: 15,
+    marginLeft: 5,
+    textAlign: 'center',
+    alignSelf: 'center',
+  },
 } );
-
-
 
 export default ItemListScreen;
