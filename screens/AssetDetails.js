@@ -5,11 +5,59 @@ import OptionButton from '../customcomponents/OptionButton';
 import GlobalInclude from '../globalInclude/GlobalInclude';
 
 var fromData = GlobalInclude.From;
-const AssetDetails = () => {
+const AssetDetails = ( props ) => {
   const [ fromDataState, setFromDataState ] = useState( [] );
 
+
+
+  async function thisfunction() {
+    const rawResponse = await fetch(
+      'http://demo.itmanager.co.in/api/barcodescan.aspx',
+      {
+        method: 'POST',
+        // headers: {
+        //   'Accept': 'application/json',
+        //   'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify( {
+          TokenNo: '796db6eb-1f38-4f5f-9110-fd8234ec9be8',
+          Barcode: 'BEPR0001',
+        } ),
+      },
+    );
+    const content = await rawResponse.json();
+
+    console.log( content );
+  }
+
   useEffect( () => {
-    setFromDataState( fromData.Values );
+    Alert.alert( JSON.stringify( props.params.scannedValue ) )
+
+    // const scannedValue = route.params.scannedValue
+    // Alert.alert( 'scannedValue = ' + scannedValue );
+
+
+    //global.global_loader_reff.show_loader(1);
+
+    let url = 'barcodescan.aspx';
+
+    var requestObj = {
+      TokenNo: '796db6eb-1f38-4f5f-9110-fd8234ec9be8',
+      Barcode: 'BEPR0001',
+    };
+
+    GlobalInclude.Helper.UrlReq( url, 'POST', requestObj ).then( response => {
+      console.log( 'response : ', response );
+
+      if ( response.Status == 1 ) {
+        //alert('true');
+        setFromDataState( response.Values );
+        //global.global_loader_reff.show_loader(0);
+      } else {
+        alert( response.Message );
+        //global.global_loader_reff.show_loader(0);
+      }
+    } );
   }, [] );
 
   const updateDate = ( date, id ) => {
@@ -69,6 +117,7 @@ const AssetDetails = () => {
           <GlobalInclude.Dropdown
             AllData={ fromDataState }
             LabelName={ data.LabelName }
+            Default_Value={ data.Default_Value }
             Value={ data.Value }
             ReadOnly={ data.ReadOnly }
             Display={ data.Display }
@@ -105,7 +154,7 @@ const AssetDetails = () => {
 
   const fromSubmit = () => {
     Alert.alert( 'From submit successfully' );
-  }
+  };
 
   return (
     <SafeAreaView style={ styles.container }>
@@ -123,7 +172,7 @@ const AssetDetails = () => {
           optionTitle={ 'Submit' }
           uniqeTag={ '1' }
           pressedOption={ uniqeId => {
-            fromSubmit()
+            fromSubmit();
           } }></OptionButton>
       </ScrollView>
     </SafeAreaView>

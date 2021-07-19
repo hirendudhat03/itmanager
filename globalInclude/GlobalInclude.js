@@ -16,8 +16,8 @@ import From from "../config/From.json";
 // import AppStyle from "../theme/AppStyle";
 
 //helper
-// import Helper from "../helper/Helper";
-// import AsyncStorage from "../helper/AsyncStorage";
+import Helper from "../helper/Helper";
+//import AsyncStorage from "../helper/AsyncStorage";
 
 export default {
   //component
@@ -28,7 +28,7 @@ export default {
   Suggest:Suggest,
 
   //file
-  From:From
+  From:From,
 
   //theme
 //   Assets: Assets,
@@ -38,6 +38,6 @@ export default {
 //   AppStyle: AppStyle,
 
   //helper
-//   Helper:Helper,
-//   AsyncStorage:AsyncStorage,
+  Helper:Helper,
+  //AsyncStorage:AsyncStorage,
 };

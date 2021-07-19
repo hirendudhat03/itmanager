@@ -7,45 +7,145 @@ import {
   TouchableOpacity,
   Alert,
   TextInput,
-  ImageBackground
+  Modal,
+  Text
 } from 'react-native';
 import { themeColor, CheckConnectivity } from '../Constants/Constants';
 import * as WebServiceUrls from '../Network/WebServiceUrls';;
 import BottomBar from '../customcomponents/BottomBar';
+import InsertUrlPopUp from '../customcomponents/InsertUrlPopUp.js'
 import OptionButton from '../customcomponents/OptionButton';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "../helper/AsyncStorage";
+import * as Progress from 'react-native-progress';
+
 
 
 class LogInScreen extends Component {
   static navigationOptions = {
     header: null,
   };
+  state = {
+    isBaseUrlPopVisible: false,
+    isLoading: false
+  }
   constructor( props ) {
     super( props );
     this.manageUserStatus()
     this.userNameString = ""
     this.passwordString = ""
+    this.savedUrl = ""
   }
 
   manageUserStatus = async () => {
-    try {
-      const isLoggedIn = await AsyncStorage.getItem( "isLoggedIn" )
-      if ( isLoggedIn === "1" ) {
-        this.props.navigation.navigate( 'DashBoard' );
-      }
-    } catch ( e ) {
-      alert( 'Failed to fetch the data from storage' )
+    const isLoggedIn = await AsyncStorage.getItem( "isLoggedIn" )
+    // Alert.alert( 'isLoggedIn : = ' + isLoggedIn )
+    if ( isLoggedIn != null ) {
+      this.props.navigation.navigate( 'DashBoard' );
     }
   }
 
-  componentDidMount = async () => {
-    try {
-      await AsyncStorage.setItem( "baseurl", "http://demo.itmanager.co.in/" )
-      //alert( 'Data successfully saved' )
-    } catch ( e ) {
-      //alert( 'Failed to save the data to the storage' )
+
+  pressedSaveSettingURL = async () => {
+    //AsyncStorage.setItem( "baseurl", "http://demo.itmanager.co.in/" )
+    //Alert.alert( this.savedUrl )
+    AsyncStorage.setItem( "baseurl", this.savedUrl )
+    this.setState( { isBaseUrlPopVisible: false } )
+  }
+
+  updatedUrlTextInsettings = async ( value ) => {
+    this.savedUrl = value
+  }
+  pressedLogIn = async () => {
+
+    if ( await this.passedValidation() == false ) {
+      return
     }
+
+    const logIn_URL = await WebServiceUrls.provide_logIn_URL()
+    console.log( "=========" + logIn_URL )
+
+    this.setState( {
+      isLoading: true
+    } )
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = ( e ) => {
+      if ( request.readyState !== 4 ) {
+        return;
+      }
+
+      this.setState( {
+        isLoading: false
+      } )
+
+      if ( request.status === 200 ) {
+        console.log( request.responseText );
+        const responseObj = JSON.parse( request.responseText );
+        console.log( "=========" )
+        console.log( JSON.stringify( responseObj ) );
+
+        if ( responseObj[ "Status" ] == "1" ) {
+          AsyncStorage.setItem( "isLoggedIn", "1" )
+          AsyncStorage.setItem( "userInfo", request.responseText )
+          this.props.navigation.navigate( 'DashBoard' );
+        } else {
+          Alert.alert( responseObj[ "Message" ] )
+        }
+      } else {
+
+        console.log(
+          logIn_URL + '======================================= Error occurred',
+        );
+        console.log( request.statusText );
+        Alert.alert( "Error occured " )
+      }
+    };
+
+
+    var params = JSON.stringify( {
+      //UserName: "Manish",
+      //Password: "123",
+      UserName: this.userNameString,
+      Password: this.passwordString,
+    } );
+
+    request.open( 'POST', logIn_URL );
+    request.setRequestHeader( 'Content-Type', 'application/json;charset=UTF-8' );
+    request.timeout = 8000;
+    request.ontimeout = function () {
+      // Alert.alert('Request Timed out!!!');
+    };
+    request.send( params );
+
+    console.log( '======= API CALLED ======' );
+    console.log( 'Url : ' + logIn_URL + 'Params are :' + params );
   };
+
+  passedValidation = async () => {
+
+    const logIn_URL = await WebServiceUrls.provide_logIn_URL()
+
+    if ( logIn_URL == "" ) {
+      Alert.alert( "Please enter your baseurl by click on settings icon." )
+      return false
+    } else if ( this.userNameString.replace( /\s+/g, '' ) == "" ||
+      this.passwordString.replace( /\s+/g, '' ) == "" ) {
+      Alert.alert( "Please provide user name & password." )
+      return false
+    }
+    return true
+
+  }
+
+  updatedUserName = ( userNameString ) => {
+    this.userNameString = userNameString
+  };
+  updatedUserPassword = ( passwordString ) => {
+    this.passwordString = passwordString
+  };
+
+
+
 
   render() {
     return (
@@ -62,7 +162,10 @@ class LogInScreen extends Component {
               flexDirection: 'row',
               justifyContent: 'flex-end',
             } }>
-            <TouchableOpacity style={ { width: 30, height: 30, marginRight: 5 } }>
+            <TouchableOpacity style={ { width: 30, height: 30, marginRight: 5 } }
+              onPress={ () => {
+                this.setState( { isBaseUrlPopVisible: true } )
+              } }>
               <Image
                 source={ require( '../assets/images/settings.png' ) }
                 style={ { width: 30, height: 30 } }
@@ -94,7 +197,7 @@ class LogInScreen extends Component {
             // keyboardType="numeric"
             />
 
-            <View style={ { flexDirection: 'row', justifyContent: 'flex-end' } }>
+            <View style={ { flexDirection: 'row', justifyContent: 'center' } }>
               <OptionButton
                 customStyle={ { borderRadius: 5, backgroundColor: 'green', margin: 12, } }
                 optionTitle={ 'Log In' }
@@ -108,85 +211,29 @@ class LogInScreen extends Component {
           </View>
         </View>
         {/* </ImageBackground> */ }
+        <Modal
+          animationType="slide"
+          transparent={ true }
+          visible={ this.state.isBaseUrlPopVisible }
+          onRequestClose={ () => {
+            Alert.alert( "Modal has been closed." );
+            this.setModalVisible( !modalVisible );
+          } }
+        >
+          <InsertUrlPopUp
+            updatedUrlText={ this.updatedUrlTextInsettings }
+            pressedSaveSettingURL={ this.pressedSaveSettingURL }></InsertUrlPopUp>
+
+        </Modal>
+        { this.state.isLoading ? (
+          <View style={ { flex: 1, alignSelf: 'center', } }>
+            <Progress.Circle size={ 50 } indeterminate={ true } />
+          </View>
+        ) : null }
       </SafeAreaView>
     );
   }
 
-  updatedUserName = ( userNameString ) => {
-    this.userNameString = userNameString
-
-  };
-  updatedUserPassword = ( passwordString ) => {
-    this.passwordString = passwordString
-  };
-
-  passedValidation = () => {
-    if ( this.userNameString.replace( /\s+/g, '' ) == "" ||
-      this.passwordString.replace( /\s+/g, '' ) == "" ) {
-      Alert.alert( "Please provide user name & password." )
-      return false
-    }
-    return true
-  }
-
-
-
-  pressedLogIn = async () => {
-
-    if ( this.passedValidation() == false ) {
-      return
-    }
-
-    const logIn_URL = await WebServiceUrls.provide_logIn_URL()
-    console.log( "=========" + logIn_URL )
-
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = ( e ) => {
-      if ( request.readyState !== 4 ) {
-        return;
-      }
-
-      if ( request.status === 200 ) {
-        console.log( request.responseText );
-        const responseObj = JSON.parse( request.responseText );
-        console.log( "=========" )
-        console.log( JSON.stringify( responseObj ) );
-
-        if ( responseObj[ "Status" ] == "1" ) {
-          AsyncStorage.setItem( "isLoggedIn", "1" )
-          AsyncStorage.setItem( "userInfo", request.responseText )
-          this.props.navigation.navigate( 'DashBoard' );
-        } else {
-          Alert.alert( responseObj[ "Message" ] )
-        }
-      } else {
-        console.log(
-          logIn_URL + '======================================= Error occurred',
-        );
-        console.log( request.statusText );
-        Alert.alert( "Error occured " )
-      }
-    };
-
-
-    var params = JSON.stringify( {
-      //UserName: "Manish",
-      //Password: "123",
-      UserName: this.userNameString,
-      Password: this.passwordString,
-    } );
-
-    request.open( 'POST', logIn_URL );
-    request.setRequestHeader( 'Content-Type', 'application/json;charset=UTF-8' );
-    request.timeout = 8000;
-    request.ontimeout = function () {
-      // Alert.alert('Request Timed out!!!');
-    };
-    request.send( params );
-
-    console.log( '======= API CALLED ======' );
-    console.log( 'Url : ' + logIn_URL + 'Params are :' + params );
-  };
 };
 
 

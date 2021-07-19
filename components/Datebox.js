@@ -12,7 +12,7 @@ const Datebox = props => {
         mode="date"
         placeholder={props.LabelName}
         format={props.Date_Format}
-        disabled={props.ReadOnly == 'True' ? false : true}
+        disabled={props.ReadOnly == 'True' ? true : false}
         // minDate="2016-05-01"
         // maxDate="2016-06-01"
         confirmBtnText="Confirm"

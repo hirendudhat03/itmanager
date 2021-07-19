@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, SafeAreaView, Alert, ScrollView } from 'react-native';
+import { StyleSheet, SafeAreaView, Alert, ScrollView, Modal } from 'react-native';
 import BottomBar from '../customcomponents/BottomBar'
 import OptionButton from '../customcomponents/OptionButton'
+import AsyncStorage from "../helper/AsyncStorage";
+import QRScanner from '../customcomponents/QRScanner.js'
 
 
 class DashBoard extends Component {
   static navigationOptions = {
     header: null,
   };
+  state = {
+    isScannerVisible: false
+  }
   constructor( props ) {
     super( props );
   }
@@ -27,7 +32,7 @@ class DashBoard extends Component {
             customStyle={ { marginBottom: 20 } }
             optionTitle={ "Asset Manager" }
             uniqeTag={ "1" }
-            pressedOption={ ( uniqeId ) => { this.tempMoveToDerailsScreen() } }
+            pressedOption={ ( uniqeId ) => { this.openScanner() } }
           ></OptionButton>
 
           <OptionButton
@@ -45,28 +50,49 @@ class DashBoard extends Component {
           rightTitle={ "Log Out" }
         ></BottomBar>
 
+        <Modal
+          animationType="slide"
+          transparent={ false }
+          visible={ this.state.isScannerVisible }
+          onRequestClose={ () => {
+          } }
+        >
+          <QRScanner
+            pressedCancel={ () => {
+              this.setState( { isScannerVisible: false } )
+            } }
+            scannedCodeSuccessfully={ this.scannedCodeSuccessfully }
+          ></QRScanner>
+
+        </Modal>
+
       </SafeAreaView>
     );
+  }
+  scannedCodeSuccessfully = ( event ) => {
+    this.setState( { isScannerVisible: false } )
+
+    if ( event.error == null ) {
+      // Alert.alert( "Scanned = " + event.data )
+      this.props.navigation.navigate( 'AssetDetails', { scannedValue: event.data } );
+
+    } else {
+      // Alert.alert( "Scanned = " + event.error )
+    }
   }
 
   tempMoveToDerailsScreen = () => {
     this.props.navigation.navigate( 'AssetDetails' );
   }
 
+  openScanner = () => {
+    this.setState( { isScannerVisible: true } )
+  }
+
 
   logOutUser = async () => {
-
-    try {
-      await AsyncStorage.removeItem( "isLoggedIn" );
-    }
-    catch ( exception ) {
-    }
-
-    try {
-      await AsyncStorage.removeItem( "userInfo" );
-    }
-    catch ( exception ) {
-    }
+    await AsyncStorage.removeItem( "isLoggedIn" );
+    await AsyncStorage.removeItem( "userInfo" );
 
     this.props.navigation.popToTop();
     this.props.navigation.replace( 'LogInScreen' );

@@ -506,22 +506,22 @@
             "Default_Value": "sc1.2",
             "Value": [
                 {
-                    "Level 1 Id": "1",
+                    "Level1Id": "1",
                     "Id": "1",
                     "Name": "sc1.1"
                 },
                 {
-                    "Level 1 Id": "1",
+                    "Level1Id": "1",
                     "Id": "2",
                     "Name": "sc1.2"
                 },
                 {
-                    "Level 1 Id": "2",
+                    "Level1Id": "2",
                     "Id": "3",
                     "Name": "sc2.1"
                 },
                 {
-                    "Level 1 Id": "2",
+                    "Level1Id": "2",
                     "Id": "4",
                     "Name": "sc2.2"
                 }
@@ -663,47 +663,47 @@
             "Default_Value": "c2s2",
             "Value": [
                 {
-                    "Level 1 Id": "1",
+                    "Level1Id": "1",
                     "Id": "1",
                     "Name": "c1s1"
                 },
                 {
-                    "Level 1 Id": "1",
+                    "Level1Id": "1",
                     "Id": "2",
                     "Name": "c1s2"
                 },
                 {
-                    "Level 1 Id": "1",
+                    "Level1Id": "1",
                     "Id": "3",
                     "Name": "c1s3"
                 },
                 {
-                    "Level 1 Id": "2",
+                    "Level1Id": "2",
                     "Id": "4",
                     "Name": "c2s1"
                 },
                 {
-                    "Level 1 Id": "2",
+                    "Level1Id": "2",
                     "Id": "5",
                     "Name": "c2s2"
                 },
                 {
-                    "Level 1 Id": "2",
+                    "Level1Id": "2",
                     "Id": "6",
                     "Name": "c2s3"
                 },
                 {
-                    "Level 1 Id": "3",
+                    "Level1Id": "3",
                     "Id": "7",
                     "Name": "c3s1"
                 },
                 {
-                    "Level 1 Id": "3",
+                    "Level1Id": "3",
                     "Id": "8",
                     "Name": "c3s2"
                 },
                 {
-                    "Level 1 Id": "3",
+                    "Level1Id": "3",
                     "Id": "9",
                     "Name": "c3s3"
                 }
@@ -724,92 +724,92 @@
             "Default_Value": "c2s2a2",
             "Value": [
                 {
-                    "Level 2 Id": "1",
+                    "Level2Id": "1",
                     "Id": "1",
                     "Name": "c1s1a1"
                 },
                 {
-                    "Level 2 Id": "1",
+                    "Level2Id": "1",
                     "Id": "2",
                     "Name": "c1s1a2"
                 },
                 {
-                    "Level 2 Id": "2",
+                    "Level2Id": "2",
                     "Id": "3",
                     "Name": "c1s2a1"
                 },
                 {
-                    "Level 2 Id": "2",
+                    "Level2Id": "2",
                     "Id": "4",
                     "Name": "c1s2a2"
                 },
                 {
-                    "Level 2 Id": "3",
+                    "Level2Id": "3",
                     "Id": "5",
                     "Name": "c1s3a1"
                 },
                 {
-                    "Level 2 Id": "3",
+                    "Level2Id": "3",
                     "Id": "6",
                     "Name": "c1s3a2"
                 },
                 {
-                    "Level 2 Id": "4",
+                    "Level2Id": "4",
                     "Id": "7",
                     "Name": "c2s1a1"
                 },
                 {
-                    "Level 2 Id": "4",
+                    "Level2Id": "4",
                     "Id": "8",
                     "Name": "c2s1a2"
                 },
                 {
-                    "Level 2 Id": "5",
+                    "Level2Id": "5",
                     "Id": "9",
                     "Name": "c2s2a1"
                 },
                 {
-                    "Level 2 Id": "5",
+                    "Level2Id": "5",
                     "Id": "10",
                     "Name": "c2s2a2"
                 },
                 {
-                    "Level 2 Id": "6",
+                    "Level2Id": "6",
                     "Id": "11",
                     "Name": "c2s3a1"
                 },
                 {
-                    "Level 2 Id": "6",
+                    "Level2Id": "6",
                     "Id": "12",
                     "Name": "c2s3a2"
                 },
                 {
-                    "Level 2 Id": "7",
+                    "Level2Id": "7",
                     "Id": "13",
                     "Name": "c3s1a1"
                 },
                 {
-                    "Level 2 Id": "7",
+                    "Level2Id": "7",
                     "Id": "14",
                     "Name": "c3s1a2"
                 },
                 {
-                    "Level 2 Id": "8",
+                    "Level2Id": "8",
                     "Id": "15",
                     "Name": "c3s2a1"
                 },
                 {
-                    "Level 2 Id": "8",
+                    "Level2Id": "8",
                     "Id": "16",
                     "Name": "c3s2a2"
                 },
                 {
-                    "Level 2 Id": "9",
+                    "Level2Id": "9",
                     "Id": "17",
                     "Name": "c3s3a1"
                 },
                 {
-                    "Level 2 Id": "9",
+                    "Level2Id": "9",
                     "Id": "18",
                     "Name": "c3s3a2"
                 }

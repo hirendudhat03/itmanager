@@ -9,19 +9,19 @@ const Textfield = props => {
       <TextInput
         style={styles.textInputStyle}
         placeholder={props.Default_Value}
-        editable={props.ReadOnly == 'True' ? true : false}
+        editable={props.ReadOnly == 'True' ? false : true}
       />
     </View>
   ) : null;
 };
 
 const styles = StyleSheet.create({
-  viewStyle: {height: 60, marginHorizontal: 20, marginTop: 20},
+  viewStyle: {height: 70, marginHorizontal: 20, marginTop: 20},
   textStyle: {fontSize: 16, color: 'black', paddingHorizontal: 0, height: 30},
   textInputStyle: {
     fontSize: 16,
     borderWidth: 0.2,
-    height: 30,
+    height: 40,
     borderRadius: 10,
     paddingHorizontal: 10,
   },

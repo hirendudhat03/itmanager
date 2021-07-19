@@ -1,4 +1,5 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from "react-native";
+import AsyncStorage from "../helper/AsyncStorage";
 
 
 //All API Responses
@@ -13,15 +14,21 @@ export const Login_Activate_Account_Remaining_Code = 601;
 
 
 export const BASEURL = async () => {
-  try {
-    const baseUrl = await AsyncStorage.getItem( "baseurl" )
-    return baseUrl
-  } catch ( e ) {
-    alert( 'Failed to fetch the data from storage' )
-  }
+  const baseUrl = await AsyncStorage.getItem( "baseurl" )
+  return baseUrl
 };
 
 // Profile API's
 export const provide_logIn_URL = async () => {
-  return ( await BASEURL() ) + 'api/login.aspx';
+  var url = await BASEURL()
+  if ( url == null || url == '' ) {
+    return ""
+  }
+
+  url = url + '/api/login.aspx';
+  var pattern = /^((http|https|ftp):\/\/)/;
+  if ( !pattern.test( url ) ) {
+    url = "http://" + url;
+  }
+  return url
 };

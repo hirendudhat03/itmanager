@@ -22,7 +22,7 @@ const Browse = props => {
   const [multipleFile, setMultipleFile] = useState([]);
 
   const selectOneFile = async () => {
-    if (props.ReadOnly == 'True') {
+    if (props.ReadOnly == 'False') {
       //Opening Document Picker for selection of one file
       try {
         const res = await DocumentPicker.pick({

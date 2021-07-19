@@ -2,17 +2,15 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   TouchableOpacity,
   Image,
 } from 'react-native';
 import ActionSheet from 'react-native-actionsheet';
-import {Item} from 'react-native-paper/lib/typescript/components/List/List';
 
 const Dropdown = props => {
-  const [labelName, setLabelName] = useState(props.LabelName);
-  const [newData, setNewData] = useState([]);
+  const [labelName, setLabelName] = useState(props.Default_Value);
+  const [currentId, setCurrentId] = useState(1);
 
   var namedata = props.data;
 
@@ -20,71 +18,152 @@ const Dropdown = props => {
     namedata.show();
   };
 
-  var newBox = props.data;
-  var newData1;
+  var Level_3_Dropdown_Child_1 = props.data;
+  var Level_3_Dropdown_Child_2 = 2;
+  var Level_2_Dropdown_Child_1 = props.data;
 
-  const showActionSheet2 = () => {
-    newBox.show();
+  const Level_3_Dropdown_Child_1_Function = () => {
+    Level_3_Dropdown_Child_1.show();
+  };
+  const Level_3_Dropdown_Child_2_Function = (index) => {
+    
+    Level_3_Dropdown_Child_2.show();
+    Level_3_Dropdown_Child_2 = index + 1;
+  };
+  const Level_2_Dropdown_Child_1_Function = () => {
+    Level_2_Dropdown_Child_1.show();
+  };
+
+  const Level_3_Dropdown_Child_1_Fetch = data => {
+    var clone = [];
+
+    data.map(data => {
+      if (data.Custom_Type == '3 Level Dropdown_Child_1') {
+        data.Value.map(item => {
+          if (item.Level1Id == currentId) {
+            clone.push(item.Name);
+          }
+        });
+      }
+    });
+
+    return clone;
+  };
+  const Level_3_Dropdown_Child_2_Fetch = data => {
+    var clone = [];
+
+    data.map(data => {
+      if (data.Custom_Type == '3 Level Dropdown_Child_2') {
+        data.Value.map(item => {
+          if (item.Level2Id == 1) {
+            clone.push(item.Name);
+          }
+        });
+      }
+    });
+
+    return clone;
+  };
+  const Level_2_Dropdown_Child_1_Fetch = data => {
+    var clone = [];
+
+    data.map(data => {
+      if (data.Custom_Type == '2 Level Dropdown_Child_1') {
+        data.Value.map(item => {
+          if (item.Level1Id == currentId) {
+            clone.push(item.Name);
+          }
+        });
+      }
+    });
+
+    return clone;
   };
 
   const displayItem = data => {
     var clone = [];
-    //console.log('data : ',data);
+
     data.map(data => {
       clone.push(data.Name);
-      //return data.Name;
     });
-    console.log(clone);
+    clone.push('cancel');
     return clone;
   };
 
-  const clickOnOption = (data, index) => {
+  const clickMainDropdown = (data, index) => {
     var clone = [];
-    //console.log('data : ',data);
     data.map(data => {
       clone.push(data.Name);
-      //return data.Name;
     });
-    console.log(clone);
 
     if (props.Custom_Type == '3 Level Dropdown') {
-      alert('3 Level Dropdown');
       props.AllData.map(data => {
         if (data.Custom_Type == '3 Level Dropdown_Child_1') {
-          showActionSheet2();
-          newData1 = displayItem(data.Value);
-
-          console.log('newData1 : ', newData1);
-          setNewData(newData1);
+          Level_3_Dropdown_Child_1_Function();
+          setCurrentId(1 + index);
         }
       });
     } else if (props.Custom_Type == '2 Level Dropdown') {
-      alert('2 Level Dropdown');
+      Level_2_Dropdown_Child_1_Function();
+
+      setCurrentId(1 + index);
     } else {
-      setLabelName(clone[index]);
+      console.log('clone[index] : ',clone[index]);
+      setLabelName(clone[index] == undefined ? props.LabelName : clone[index]);
     }
 
     return clone[index];
   };
 
-  return (
+  const setDataLevel_3_Dropdown_Child_2 = (data, index) => {
+    var clone = [];
+
+    data.map(data => {
+      if (data.Custom_Type == '3 Level Dropdown_Child_2') {
+        data.Value.map(item => {
+          if (item.Level2Id == index + 1) {
+            setLabelName(item.Name);
+          }
+        });
+      }
+    });
+  };
+  const setDataLevel_2_Dropdown_Child_1 = (data, index) => {
+    var clone = [];
+
+    data.map(data => {
+      if (data.Custom_Type == '2 Level Dropdown_Child_1') {
+        data.Value.map(item => {
+          if (item.Level1Id == index + 1) {
+            setLabelName(item.Name);
+          }
+        });
+      }
+    });
+  };
+
+  return props.Display == 'True' ? (
+    <View style={styles.viewStyle}>
+    <Text style={styles.textStyle}>{props.LabelName}</Text>
     <TouchableOpacity
       style={{
         height: 40,
-        marginHorizontal: 20,
-        marginTop: 30,
+        //marginHorizontal: 20,
+        marginTop: 5,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 0.3,
         borderRadius: 10,
       }}
-      onPress={() => showActionSheet()}>
+      onPress={() => props.ReadOnly == 'False' ? 
+      showActionSheet()
+       : null}>
       <View
         style={{
           flex: 1,
           justifyContent: 'center',
         }}>
-        <Text style={styles.textStyle}>{labelName}</Text>
+        <Text style={styles.textStyle1}>{labelName}</Text>
       </View>
       <View
         style={{
@@ -102,32 +181,65 @@ const Dropdown = props => {
       </View>
       <ActionSheet
         ref={o => (namedata = o)}
-        title={'Which one do you like ?'}
+        title={'title'}
         //styles={{backgroundColor: 'red', height: 200}}
         options={displayItem(props.Value)}
         //destructiveButtonIndex={1}
-        onPress={index => clickOnOption(props.Value, index)}
+        onPress={index => clickMainDropdown(props.Value, index)}
       />
 
       <ActionSheet
-        ref={o => (newBox = o)}
-        title={'Which one do you like ?'}
+        ref={o => (Level_3_Dropdown_Child_1 = o)}
+        title={'title'}
         //styles={{backgroundColor: 'red', height: 200}}
-        options={newData}
+        options={Level_3_Dropdown_Child_1_Fetch(props.AllData)}
+        //options={['first', 'second', 'third']}
         //destructiveButtonIndex={1}
-        onPress={index => {}}
+        onPress={index => {
+          Level_3_Dropdown_Child_2_Function(index);
+        }}
+      />
+      <ActionSheet
+        ref={o => (Level_3_Dropdown_Child_2 = o)}
+        title={'title'}
+        //styles={{backgroundColor: 'red', height: 200}}
+        options={Level_3_Dropdown_Child_2_Fetch(props.AllData)}
+        //options={['first', 'second', 'third']}
+        //destructiveButtonIndex={1}
+        onPress={index => {
+          setDataLevel_3_Dropdown_Child_2(props.AllData, index);
+        }}
+      />
+      <ActionSheet
+        ref={o => (Level_2_Dropdown_Child_1 = o)}
+        title={'title'}
+        //styles={{backgroundColor: 'red', height: 200}}
+        options={Level_2_Dropdown_Child_1_Fetch(props.AllData)}
+        //options={['first', 'second', 'third']}
+        //destructiveButtonIndex={1}
+        onPress={index => {
+          setDataLevel_2_Dropdown_Child_1(props.AllData, index);
+        }}
       />
     </TouchableOpacity>
-  );
+  </View>
+    
+  ) : null;
 };
 
 const styles = StyleSheet.create({
-  viewStyle: {height: 30, marginHorizontal: 20, marginTop: 20},
+  viewStyle: {height: 60, marginHorizontal: 20, marginTop: 20},
   innerView: {
     height: 30,
     flexDirection: 'row',
   },
   textStyle: {
+    fontSize: 16,
+    color: 'black',
+    paddingHorizontal: 0,
+    //marginLeft: 10,
+  },
+  textStyle1: {
     fontSize: 16,
     color: 'black',
     paddingHorizontal: 0,
