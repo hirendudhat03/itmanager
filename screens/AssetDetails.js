@@ -3,48 +3,31 @@ import { StyleSheet, SafeAreaView, Alert, ScrollView, Text } from 'react-native'
 import BottomBar from '../customcomponents/BottomBar';
 import OptionButton from '../customcomponents/OptionButton';
 import GlobalInclude from '../globalInclude/GlobalInclude';
+import AsyncStorage from "../helper/AsyncStorage";
 
 var fromData = GlobalInclude.From;
 const AssetDetails = ( props ) => {
   const [ fromDataState, setFromDataState ] = useState( [] );
 
-
-
-  async function thisfunction() {
-    const rawResponse = await fetch(
-      'http://demo.itmanager.co.in/api/barcodescan.aspx',
-      {
-        method: 'POST',
-        // headers: {
-        //   'Accept': 'application/json',
-        //   'Content-Type': 'application/json'
-        // },
-        body: JSON.stringify( {
-          TokenNo: '796db6eb-1f38-4f5f-9110-fd8234ec9be8',
-          Barcode: 'BEPR0001',
-        } ),
-      },
-    );
-    const content = await rawResponse.json();
-
-    console.log( content );
-  }
-
   useEffect( () => {
-    Alert.alert( JSON.stringify( props.params.scannedValue ) )
 
-    // const scannedValue = route.params.scannedValue
-    // Alert.alert( 'scannedValue = ' + scannedValue );
+    getDataForScannedCode()
+  }, [] );
 
-
-    //global.global_loader_reff.show_loader(1);
+  const getDataForScannedCode = async ( date, id ) => {
+    const scannedCode = await AsyncStorage.getItem( 'scannedcode' )
+    const userInfoStr = await AsyncStorage.getItem( 'userInfo' )
+    const userInfoObj = JSON.parse( userInfoStr )
 
     let url = 'barcodescan.aspx';
-
     var requestObj = {
-      TokenNo: '796db6eb-1f38-4f5f-9110-fd8234ec9be8',
-      Barcode: 'BEPR0001',
+      //TokenNo: '796db6eb-1f38-4f5f-9110-fd8234ec9be8',
+      TokenNo: userInfoObj[ 'TokenNo' ],
+      // Barcode: 'BEPR0001',
+      Barcode: scannedCode,
     };
+    console.log( '============ requestObj is =======' )
+    console.log( JSON.stringify( requestObj ) )
 
     GlobalInclude.Helper.UrlReq( url, 'POST', requestObj ).then( response => {
       console.log( 'response : ', response );
@@ -58,7 +41,7 @@ const AssetDetails = ( props ) => {
         //global.global_loader_reff.show_loader(0);
       }
     } );
-  }, [] );
+  }
 
   const updateDate = ( date, id ) => {
     var clone = fromDataState;

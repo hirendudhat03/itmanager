@@ -69,12 +69,14 @@ class DashBoard extends Component {
       </SafeAreaView>
     );
   }
-  scannedCodeSuccessfully = ( event ) => {
+  scannedCodeSuccessfully = async ( event ) => {
     this.setState( { isScannerVisible: false } )
 
     if ( event.error == null ) {
       // Alert.alert( "Scanned = " + event.data )
-      this.props.navigation.navigate( 'AssetDetails', { scannedValue: event.data } );
+
+      AsyncStorage.setItem( "scannedcode", event.data )
+      this.props.navigation.navigate( 'AssetDetails' );
 
     } else {
       // Alert.alert( "Scanned = " + event.error )
